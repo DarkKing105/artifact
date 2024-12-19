@@ -1,9 +1,12 @@
 terraform {
-    required_providers {
-        proxmox = {
-            source = "telmate/proxmox"
-        }
+  required_providers {
+    proxmox = {
+      #source = "registry.example.com/telmate/proxmox"
+      source = "Telmate/proxmox"
+      version = ">=1.0.0"
     }
+  }
+  required_version = ">= 0.14"
 }
 
 provider "proxmox" {
@@ -18,8 +21,9 @@ resource "proxmox_vm_qemu" "k3s-master" {
     desc = "Cloudinit"
     count = 2
     onboot = true
+    startup = true
     clone = "ubuntu-master"
-    agent = 0
+    agent = 1
     os_type = "cloud-init"
     cores = 2
     sockets = 2
@@ -54,8 +58,8 @@ resource "proxmox_vm_qemu" "k3s-worker" {
     count = 2
     onboot = true
     clone = "ubuntu-cloud"
-
-    agent = 0
+    startup = true
+    agent = 1
 
     os_type = "cloud-init"
     cores = 2
