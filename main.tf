@@ -18,7 +18,7 @@ resource "proxmox_vm_qemu" "k3s-master" {
     desc = "Cloudinit"
     count = 2
     onboot = true
-    clone = "ubuntu-cloud"
+    clone = "ubuntu-master"
     agent = 0
     os_type = "cloud-init"
     cores = 2
