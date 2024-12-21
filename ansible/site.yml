@@ -1,0 +1,20 @@
+- name: Setup k3s servers
+  hosts: master
+  environment:
+  roles:
+    - role: k3s_server
+      become: true
+
+- name: Setup k3s agents
+  hosts: node
+  environment:
+  roles:
+    - role: k3s_agent
+      become: true
+
+- name: Configure k3s cluster
+  hosts: master
+  environment:
+  roles:
+    - role: k3s_server_post
+      become: true
