@@ -16,6 +16,8 @@ Check out the full CI/CD configuration workflow in this [video](https://www.yout
 
 The application is a Python-based microservice designed to scrape and fetch real-time level 2 data of the Indian stock market. It connects to the internet, scrapes the data, and emits it internally via a socket.
 
+![Flow Chart](https://github.com/DarkKing105/artifact/blob/main/Images/flowchart.jpg)
+
 ### Motivation
 
 Deploying this app to my Raspberry Pi traditionally involved manual copy-paste methods, which were time-intensive and prone to errors. This project aimed to:
