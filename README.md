@@ -6,7 +6,9 @@ Welcome! This document outlines how I configured and implemented a full CI/CD pr
 
 ## 🎥 Watch the Workflow
 
-Check out the full CI/CD configuration workflow in this [video](video-link). 📹✨
+Check out the full CI/CD configuration workflow in this [video](https://www.youtube.com/watch?v=48VoodoVpuo). 📹✨
+
+[same video without subtitles and in high resolution.](https://www.youtube.com/watch?v=eqJcqAufGxI)
 
 ---
 
@@ -31,24 +33,24 @@ Deploying this app to my Raspberry Pi traditionally involved manual copy-paste m
 #### Proxmox Installation
 I installed **Proxmox** on an old laptop and configured a cloud-init image, similar to Amazon AMI. This image was later used by Terraform.
 
-![Proxmox Setup](path-to-image)
+![Proxmox Setup](https://img.shields.io/badge/-Proxmox-E57000?logo=proxmox&logoColor=white&style=for-the-badge)
 
 ---
 
 ### 2. Infrastructure Provisioning
 
 #### Using Terraform
-I provisioned the VMs and started them using Terraform scripts. You can find the script [here](script-link).
+I provisioned the VMs and started them using Terraform scripts. You can find the script [here](https://github.com/DarkKing105/artifact/blob/main/terraform/main.tf).
 
 ---
 
 ### 3. Kubernetes Cluster Setup
 
 #### Using Ansible
-With the VMs ready, I used their IPs to configure an Ansible script that installed and started an **RKE2 cluster**. Thanks to [Jim’s Garage](link-to-resource) for the detailed script.
+With the VMs ready, I used their IPs to configure an Ansible script that installed and started an **RKE2 cluster**. Thanks to [Jim’s Garage](https://github.com/JamesTurland/JimsGarage) for the well explained script.
 
 #### Kubernetes the Hard Way
-To deepen my understanding, I followed **Kubernetes the Hard Way** ([link](link-to-resource)). After a few attempts, the K8s cluster was successfully up and running. 🚀😅
+To deepen my understanding, I followed **Kubernetes the Hard Way** ([link](https://github.com/kelseyhightower/kubernetes-the-hard-way)). After a few attempts, the K8s cluster was successfully up and running. 🚀😅
 
 Now, I have two Kubernetes clusters running on bare metal.
 
@@ -59,14 +61,14 @@ Now, I have two Kubernetes clusters running on bare metal.
 I installed **Rancher** following its documentation. Initially, I faced access issues because the Rancher service was exposed via `ClusterPort`. After exploring options, I configured **MetalLB** to act as a production-grade LoadBalancer.
 
 #### MetalLB Configuration
-I installed MetalLB using [their documentation](docs-link). The LoadBalancer allowed me to expose services with a defined IP range, ensuring seamless access.
+I installed MetalLB using [their documentation](https://metallb.universe.tf/installation/). The LoadBalancer allowed me to expose services with a defined IP range, ensuring seamless access.
 
 ---
 
 ### 5. Application Deployment
 
 #### Helm for Simplified Deployment
-I installed **Helm** ([docs link](helm-docs-link)) to streamline application installations.
+I installed **Helm** ([docs link](https://helm.sh/docs/intro/install/)) to streamline application installations.
 
 Installed tools using Helm:
 - **Jenkins**
@@ -74,7 +76,7 @@ Installed tools using Helm:
 - **SonarQube**
 
 #### Jenkins Cloud Agents
-The standout feature of Jenkins is its ability to provision agents as Kubernetes pods. These agents scale horizontally based on workload. [Learn more](jenkins-cloud-agent-docs-link).
+The standout feature of Jenkins is its ability to provision agents as Kubernetes pods. These agents scale horizontally based on workload. [Learn more](https://plugins.jenkins.io/kubernetes/).
 
 ---
 
@@ -179,12 +181,12 @@ I configured two workflows that trigger on pull requests to `main` and `staging`
 After passing workflows, the `staging` branch merges trigger a final GitHub Action:
 - Starts a Jenkins pipeline to build, tag, and push the Docker image to GitHub Container Registry.
 
-![Jenkins Pipeline Screenshot](path-to-image)
+![Jenkins Pipeline Screenshot](https://github.com/DarkKing105/artifact/blob/main/Images/Screenshot%202025-01-03%20153015.png)
 
 #### Deployment with ArgoCD
 The updated Docker image tag is added to the `values.yaml` file. **ArgoCD** automatically deploys the updated application to the cluster.
 
-![ArgoCD Deployment Screenshot](path-to-image)
+![ArgoCD Deployment Screenshot](https://github.com/DarkKing105/artifact/blob/main/Images/Screenshot%202025-01-02%20211555.png).
 
 ---
 
