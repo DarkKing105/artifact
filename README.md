@@ -47,7 +47,9 @@ I provisioned the VMs and started them using Terraform scripts. You can find the
 ### 3. Kubernetes Cluster Setup
 
 #### Using Ansible
-With the VMs ready, I used their IPs to configure an Ansible script that installed and started an **RKE2 cluster**. Thanks to [Jim’s Garage](https://github.com/JamesTurland/JimsGarage) for the well explained script.
+With the VMs ready, I used their IPs to configure an Ansible script that installed and started an **RKE2 cluster**. Thanks to [Jim’s Garage](https://github.com/JamesTurland/JimsGarage) for the well explained script. 
+
+[Ansible link](https://github.com/DarkKing105/artifact/tree/main/ansible)
 
 #### Kubernetes the Hard Way
 To deepen my understanding, I followed **Kubernetes the Hard Way** ([link](https://github.com/kelseyhightower/kubernetes-the-hard-way)). After a few attempts, the K8s cluster was successfully up and running. 🚀😅
