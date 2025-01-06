@@ -6,9 +6,7 @@ Welcome! This document outlines how I configured and implemented a full CI/CD pr
 
 ## 🎥 Watch the Workflow
 
-Check out the full CI/CD configuration workflow in this [video](https://www.youtube.com/watch?v=48VoodoVpuo). 📹✨
-
-[same video without subtitles and in high resolution.](https://www.youtube.com/watch?v=eqJcqAufGxI)
+Check out the full CI/CD configuration workflow in this [video](https://www.youtube.com/watch?v=sw2wxZu--v4). 📹✨
 
 ---
 
